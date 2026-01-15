@@ -88,6 +88,11 @@ export function PlayerScreen() {
     fetchRelatedVideos();
   }, [videoId, title]);
 
+  useEffect(() => {
+    setPlaying(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const onStateChange = useCallback((state: PLAYER_STATES) => {
     if (state === PLAYER_STATES.ENDED) {
       setPlaying(false);
@@ -119,8 +124,15 @@ export function PlayerScreen() {
           onChangeState={onStateChange}
           onReady={() => setPlaying(true)}
           initialPlayerParams={{
-            autoplay: 1,
-            controls: false,
+            controls: true,
+            modestbranding: true,
+            preventFullScreen: false,
+          }}
+          forceAndroidAutoplay
+          webViewProps={{
+            androidLayerType: "hardware",
+            allowsInlineMediaPlayback: true,
+            mediaPlaybackRequiresUserAction: false,
           }}
         />
       </View>
@@ -278,13 +290,14 @@ const styles = StyleSheet.create({
   actionsContainer: {
     padding: 16,
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "center",
+    gap: 8,
     borderBottomWidth: 1,
     borderBottomColor: "#282828",
   },
   actionButton: {
-    paddingHorizontal: 24,
-    paddingVertical: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
     borderRadius: 8,
   },
   actionButtonActive: {
@@ -296,6 +309,7 @@ const styles = StyleSheet.create({
   actionButtonText: {
     color: "#FFFFFF",
     fontWeight: "600",
+    fontSize: 13,
   },
   detailsContainer: {
     padding: 16,
