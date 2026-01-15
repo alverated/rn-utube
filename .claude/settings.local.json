@@ -11,7 +11,10 @@
       "Bash(pkill:*)",
       "Bash(npm uninstall:*)",
       "Bash(npx eslint:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(eas whoami:*)",
+      "Bash(eas build:*)",
+      "Bash(eas build:configure:*)"
     ],
     "deny": [],
     "ask": []
