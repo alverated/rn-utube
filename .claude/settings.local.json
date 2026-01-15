@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-expo-app:*)",
+      "Bash(npx create-expo-app@latest:*)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss init)",
+      "Bash(npm start:*)",
+      "Bash(kill:*)",
+      "Bash(pkill:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npx eslint:*)",
+      "Bash(npx tsc:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
